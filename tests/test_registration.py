@@ -1,5 +1,8 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from pages.registration_page import RegistrationPage
 import allure
 
@@ -37,10 +40,10 @@ def test_fill_registration_form(setup, first_name, last_name, email, gender, mob
     # Проверка ожидаемого результата (появление всплывающего окна и проверка введенных значений)
     # Это можно реализовать, например, с использованием ожидания элемента с помощью WebDriverWait
 
-    # Пример:
-    # wait = WebDriverWait(driver, 10)
-    # popup = wait.until(EC.presence_of_element_located((By.XPATH, "//div[@class='popup']")))
-    # assert popup.text == "Thanks for submitting the form"
+
+    wait = WebDriverWait(driver, 10)
+    popup = wait.until(EC.presence_of_element_located((By.XPATH, "//div[@class='popup']")))
+    assert popup.text == "Thanks for submitting the form"
 
     # Формирование отчета Allure
     allure.attach(driver.get_screenshot_as_png(), name="Screenshot", attachment_type=allure.attachment_type.PNG)

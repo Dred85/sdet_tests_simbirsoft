@@ -23,6 +23,8 @@ class RegistrationPage:
         self.driver.get(self.url)
 
     def enter_first_name(self, first_name):
+        """ Находит элемент на веб-странице по ID и вводит указанный текст в это поле
+        с помощью Selenium WebDriver."""
         self.driver.find_element(*self.first_name_input).send_keys(first_name)
 
     def enter_last_name(self, last_name):
