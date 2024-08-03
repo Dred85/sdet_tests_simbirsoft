@@ -9,7 +9,7 @@ class RegistrationPage:
         self.first_name_input = (By.ID, 'firstName')
         self.last_name_input = (By.ID, 'lastName')
         self.email_input = (By.ID, 'userEmail')
-        self.gender_radio_male = (By.XPATH, "//label[@for='gender-radio-1'")
+        self.gender_radio_male = (By.XPATH, "//label[@for='gender-radio-1']")
         self.mobile_number_input = (By.ID, 'userNumber')
         self.date_of_birth_input = (By.ID, 'dateOfBirthInput')
         self.subjects_input = (By.ID, 'subjectsInput')
