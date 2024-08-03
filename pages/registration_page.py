@@ -1,8 +1,6 @@
 import time
 
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import Keys
 
 
@@ -21,7 +19,7 @@ class RegistrationPage:
         self.upload_picture_input = (By.ID, 'uploadPicture')
         self.current_address_input = (By.ID, 'currentAddress')
         self.state_dropdown = (By.XPATH, "//input[@id='react-select-3-input']")
-        self.city_dropdown = (By.ID, 'city')
+        self.city_dropdown = (By.XPATH, "//input[@id='react-select-4-input']")
         self.submit_button = (By.ID, 'submit')
 
     def open_page(self):
@@ -65,10 +63,9 @@ class RegistrationPage:
         time.sleep(2)
 
     def select_city(self, city):
-        city_dropdown = self.driver.find_element(*self.city_dropdown)
-        city_dropdown.click()
-        city_option = city_dropdown.find_element(By.XPATH, f".//option[text()='{city}']")
-        city_option.click()
+        self.driver.find_element(*self.city_dropdown).send_keys()
+        self.driver.find_element(*self.city_dropdown).send_keys(Keys.ENTER)
+        time.sleep(2)
 
     def submit_form(self):
         self.driver.find_element(*self.submit_button).click()
