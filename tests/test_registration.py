@@ -35,7 +35,7 @@ def test_fill_registration_form(setup, first_name, last_name, email, gender, mob
     registration_page.select_hobbies_sport()
     registration_page.upload_picture(picture_path)
     registration_page.enter_current_address(address)
-    # registration_page.select_state(state)
+    registration_page.select_state(state)
     # registration_page.select_city(city)
     # registration_page.submit_form()
 

@@ -1,6 +1,10 @@
+import time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver import Keys
+
 
 class RegistrationPage:
     def __init__(self, driver):
@@ -16,7 +20,7 @@ class RegistrationPage:
         self.hobbies_sport = (By.ID, 'react-select-2-option-0')
         self.upload_picture_input = (By.ID, 'uploadPicture')
         self.current_address_input = (By.ID, 'currentAddress')
-        self.state_dropdown = (By.CSS_SELECTOR, ".css-yk16xz-control")
+        self.state_dropdown = (By.XPATH, "//input[@id='react-select-3-input']")
         self.city_dropdown = (By.ID, 'city')
         self.submit_button = (By.ID, 'submit')
 
@@ -56,17 +60,9 @@ class RegistrationPage:
         self.driver.find_element(*self.current_address_input).send_keys(address)
 
     def select_state(self, state):
-        # Ожидание видимости и кликабельности дропдауна
-        dropdown = WebDriverWait(self.driver, 5).until(
-            EC.element_to_be_clickable(self.state_dropdown)
-        )
-        dropdown.click()
-
-        # Ожидание появления выпадающего списка
-        state_option = WebDriverWait(self.driver, 5).until(
-            EC.element_to_be_clickable((By.XPATH, f"//div[text()='{state}']"))
-        )
-        state_option.click()
+        self.driver.find_element(*self.state_dropdown).send_keys(state)
+        self.driver.find_element(*self.state_dropdown).send_keys(Keys.ENTER)
+        time.sleep(2)
 
     def select_city(self, city):
         city_dropdown = self.driver.find_element(*self.city_dropdown)
