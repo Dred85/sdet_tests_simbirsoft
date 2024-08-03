@@ -9,10 +9,11 @@ class RegistrationPage:
         self.first_name_input = (By.ID, 'firstName')
         self.last_name_input = (By.ID, 'lastName')
         self.email_input = (By.ID, 'userEmail')
-        self.gender_radio_male = (By.ID, 'gender-radio-1')
+        self.gender_radio_male = (By.XPATH, "//label[@for='gender-radio-1'")
         self.mobile_number_input = (By.ID, 'userNumber')
         self.date_of_birth_input = (By.ID, 'dateOfBirthInput')
         self.subjects_input = (By.ID, 'subjectsInput')
+        self.hobbies_sport = (By.ID, 'hobbies-checkbox-1')
         self.upload_picture_input = (By.ID, 'uploadPicture')
         self.current_address_input = (By.ID, 'currentAddress')
         self.state_dropdown = (By.ID, 'state')
@@ -44,6 +45,9 @@ class RegistrationPage:
 
     def enter_subjects(self, subjects):
         self.driver.find_element(*self.subjects_input).send_keys(subjects)
+
+    def select_hobbies_sport(self):
+        self.driver.find_element(*self.hobbies_sport).click()
 
     def upload_picture(self, file_path):
         self.driver.find_element(*self.upload_picture_input).send_keys(file_path)
