@@ -13,7 +13,7 @@ class RegistrationPage:
         self.mobile_number_input = (By.ID, 'userNumber')
         self.date_of_birth_input = (By.ID, 'dateOfBirthInput')
         self.subjects_input = (By.ID, 'subjectsInput')
-        self.hobbies_sport = (By.ID, 'hobbies-checkbox-1')
+        self.hobbies_sport = (By.ID, 'react-select-2-option-0')
         self.upload_picture_input = (By.ID, 'uploadPicture')
         self.current_address_input = (By.ID, 'currentAddress')
         self.state_dropdown = (By.ID, 'state')
