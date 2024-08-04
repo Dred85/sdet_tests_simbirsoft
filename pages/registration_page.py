@@ -15,10 +15,7 @@ class RegistrationPage:
         self.mobile_number_input = (By.ID, 'userNumber')
         self.date_of_birth_input = (By.ID, 'dateOfBirthInput')
         self.subjects_input = (By.ID, 'subjectsInput')
-
         self.hobbies_sport = (By.CSS_SELECTOR, "label[for='hobbies-checkbox-1']")
-        # self.hobbies_sport = (By.ID, 'hobbies-checkbox-1')
-
         self.upload_picture_input = (By.ID, 'uploadPicture')
         self.current_address_input = (By.ID, 'currentAddress')
         self.state_dropdown = (By.XPATH, "//input[@id='react-select-3-input']")
@@ -47,7 +44,6 @@ class RegistrationPage:
         self.driver.find_element(*self.mobile_number_input).send_keys(mobile_number)
 
     def enter_date_of_birth(self, dob):
-        # self.driver.find_element(*self.date_of_birth_input).send_keys(dob)
 
         self.driver.find_element(*self.date_of_birth_input).send_keys(dob)
         self.driver.find_element(*self.date_of_birth_input).send_keys(Keys.ENTER)
