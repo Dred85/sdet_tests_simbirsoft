@@ -2,7 +2,6 @@ import time
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver import Keys
-from selenium.webdriver.common.action_chains import ActionChains
 
 
 class RegistrationPage:
@@ -62,11 +61,6 @@ class RegistrationPage:
 
     def select_hobbies_sport(self):
 
-        # driver.findElement(By.id("hobbies-checkbox-1")).click()
-        # actions = ActionChains(self.driver)
-        # actions.move_to_element(self.driver.find_element(By.ID, "hobbies-checkbox-1")).click().perform()
-        #
-        # time.sleep(2)
         checkbox_label = self.driver.find_element(*self.hobbies_sport)
         # Проверка состояния чекбокса
         if not checkbox_label.is_selected():
@@ -80,7 +74,7 @@ class RegistrationPage:
         if checkbox_label.is_enabled():
             checkbox_label.click()
 
-        time.sleep(5)
+        time.sleep(2)
 
     def upload_picture(self, file_path):
         self.driver.find_element(*self.upload_picture_input).send_keys(file_path)
@@ -99,4 +93,4 @@ class RegistrationPage:
 
     def submit_form(self):
         self.driver.find_element(*self.submit_button).click()
-        time.sleep(20)
+        time.sleep(10)
