@@ -75,6 +75,8 @@ class RegistrationPage:
     def upload_picture(self, file_path):
         self.driver.find_element(*self.upload_picture_input).send_keys(file_path)
 
+
+
     def enter_current_address(self, address):
         self.driver.find_element(*self.current_address_input).send_keys(address)
 

@@ -1,7 +1,7 @@
 import pytest
 from selenium import webdriver
 from pages.registration_page import RegistrationPage
-
+from config import picture_path
 import allure
 
 
@@ -15,7 +15,8 @@ def setup():
 @pytest.mark.parametrize(
     "first_name, last_name, email, gender, mobile_number, dob, subjects, picture_path, address, state, city",
     [("Александр", "Олонов", "adrolv@rambler.ru", "Male", "1234567890", "01-01-1990", "Maths",
-      "/home/dred/PycharmProjects/project_online_store /media/blog_previews/el.jpeg",
+      picture_path,
+      # "/home/dred/PycharmProjects/sdet_test_simbirsoft/images/electron.jpg",
       "улица Горная", "NCR", "Delhi")])
 def test_fill_registration_form(setup, first_name, last_name, email, gender, mobile_number, dob, subjects, picture_path,
                                 address, state, city):
