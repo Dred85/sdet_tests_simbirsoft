@@ -48,11 +48,16 @@ class RegistrationPage:
         self.driver.find_element(*self.mobile_number_input).send_keys(mobile_number)
 
     def enter_date_of_birth(self, dob):
+        # self.driver.find_element(*self.date_of_birth_input).send_keys(dob)
+
         self.driver.find_element(*self.date_of_birth_input).send_keys(dob)
+        self.driver.find_element(*self.date_of_birth_input).send_keys(Keys.ENTER)
+
         time.sleep(2)
 
     def enter_subjects(self, subjects):
         self.driver.find_element(*self.subjects_input).send_keys(subjects)
+        self.driver.find_element(*self.subjects_input).send_keys(Keys.ENTER)
         time.sleep(2)
 
     def select_hobbies_sport(self):
