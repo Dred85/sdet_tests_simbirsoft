@@ -2,6 +2,9 @@ import time
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+
+
 
 
 class RegistrationPage:
@@ -15,7 +18,9 @@ class RegistrationPage:
         self.mobile_number_input = (By.ID, 'userNumber')
         self.date_of_birth_input = (By.ID, 'dateOfBirthInput')
         self.subjects_input = (By.ID, 'subjectsInput')
-        self.hobbies_sport = (By.ID, 'react-select-2-option-0')
+
+        self.hobbies_sport = (By.ID, 'hobbies-checkbox-1')
+
         self.upload_picture_input = (By.ID, 'uploadPicture')
         self.current_address_input = (By.ID, 'currentAddress')
         self.state_dropdown = (By.XPATH, "//input[@id='react-select-3-input']")
@@ -49,7 +54,14 @@ class RegistrationPage:
         self.driver.find_element(*self.subjects_input).send_keys(subjects)
 
     def select_hobbies_sport(self):
-        self.driver.find_element(*self.hobbies_sport).click()
+
+        # driver.findElement(By.id("hobbies-checkbox-1")).click()
+        actions = ActionChains(self.driver)
+        actions.move_to_element(self.driver.find_element(By.ID, "hobbies-checkbox-1")).click().perform()
+
+        time.sleep(2)
+
+
 
     def upload_picture(self, file_path):
         self.driver.find_element(*self.upload_picture_input).send_keys(file_path)
@@ -63,9 +75,9 @@ class RegistrationPage:
         time.sleep(2)
 
     def select_city(self, city):
-        self.driver.find_element(*self.city_dropdown).send_keys()
+        self.driver.find_element(*self.city_dropdown).send_keys(city)
         self.driver.find_element(*self.city_dropdown).send_keys(Keys.ENTER)
-        time.sleep(2)
+        time.sleep(20)
 
     def submit_form(self):
         self.driver.find_element(*self.submit_button).click()

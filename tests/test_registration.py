@@ -1,10 +1,10 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from pages.registration_page import RegistrationPage
+
 import allure
+
+from tests.test_checkbox import test_checkbox
 
 
 @pytest.fixture(scope="module")
@@ -32,7 +32,11 @@ def test_fill_registration_form(setup, first_name, last_name, email, gender, mob
     registration_page.enter_mobile_number(mobile_number)
     registration_page.enter_date_of_birth(dob)
     registration_page.enter_subjects(subjects)
+
+
     registration_page.select_hobbies_sport()
+
+
     registration_page.upload_picture(picture_path)
     registration_page.enter_current_address(address)
     registration_page.select_state(state)
