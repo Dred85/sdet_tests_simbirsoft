@@ -14,7 +14,7 @@ def setup():
 
 @pytest.mark.parametrize(
     "first_name, last_name, email, gender, mobile_number, dob, subjects, picture_path, address, state, city",
-    [("Александр", "Олонов", "adrolv@rambler.ru", "Male", "1234567890", "01-01-1990", "Maths",
+    [("Александр", "Олонов", "adrolv@rambler.ru", "Male", "89101268340", "01-01-1990", "Maths",
       picture_path,
       # "/home/dred/PycharmProjects/sdet_test_simbirsoft/images/electron.jpg",
       "улица Горная", "NCR", "Delhi")])
@@ -39,12 +39,5 @@ def test_fill_registration_form(setup, first_name, last_name, email, gender, mob
 
     registration_page.submit_form()
 
-    # Проверка ожидаемого результата (появление всплывающего окна и проверка введенных значений)
-
-    # wait = WebDriverWait(driver, 1)
-    # popup = wait.until(EC.presence_of_element_located((By.XPATH, "//div[@class='popup']")))
-    # wait = WebDriverWait(driver, 5)
-    # assert popup.text == "Thanks for submitting the form"
-
     # Формирование отчета Allure
-    # allure.attach(driver.get_screenshot_as_png(), name="Screenshot", attachment_type=allure.attachment_type.PNG)
+    allure.attach(driver.get_screenshot_as_png(), name="Screenshot", attachment_type=allure.attachment_type.PNG)
