@@ -5,8 +5,6 @@ from selenium.webdriver import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
 
-
-
 class RegistrationPage:
     def __init__(self, driver):
         self.driver = driver
@@ -79,8 +77,6 @@ class RegistrationPage:
 
         time.sleep(5)
 
-
-
     def upload_picture(self, file_path):
         self.driver.find_element(*self.upload_picture_input).send_keys(file_path)
 
@@ -95,7 +91,6 @@ class RegistrationPage:
     def select_city(self, city):
         self.driver.find_element(*self.city_dropdown).send_keys(city)
         self.driver.find_element(*self.city_dropdown).send_keys(Keys.ENTER)
-
 
     def submit_form(self):
         self.driver.find_element(*self.submit_button).click()
