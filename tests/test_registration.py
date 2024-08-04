@@ -14,7 +14,7 @@ def setup():
 
 @pytest.mark.parametrize(
     "first_name, last_name, email, gender, mobile_number, dob, subjects, picture_path, address, state, city",
-    [("Александр", "Олонов", "adrolv@rambler.ru", "Male", "89101268340", "01-01-1990", "Maths",
+    [("Александр", "Олонов", "adrolv@rambler.ru", "Male", "9101268340", "01-01-1990", "Maths",
       picture_path,
       # "/home/dred/PycharmProjects/sdet_test_simbirsoft/images/electron.jpg",
       "улица Горная", "NCR", "Delhi")])
